@@ -4,6 +4,8 @@ Housing::Application.routes.draw do
   resources :users
   root to: 'home#index'
 
+  match '/signup',  to: 'users#new'
+
 
 
   # The priority is based upon order of creation:
