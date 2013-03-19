@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= select("list", "user_id", User.all.collect {|p| [ p.name, p.id ] }, { :multiple => true })%>
   </div>
   <div class="actions">
     <%= f.submit %>

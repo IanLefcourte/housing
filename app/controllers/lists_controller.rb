@@ -25,6 +25,7 @@ class ListsController < ApplicationController
   # GET /lists/new.json
   def new
     @list = List.new
+    @user = User.all
 
     respond_to do |format|
       format.html # new.html.erb

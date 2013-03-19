@@ -19,6 +19,9 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+  <%= f.label :lists_id %><br />
+  <%= select("user", "lists_id", List.all.collect {|p| [ p.name, p.id ] }, { :include_blank => false, :multiple => true })%>
+
   <div class="actions">
     <%= f.submit %>
   </div>
