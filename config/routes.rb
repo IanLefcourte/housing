@@ -1,8 +1,7 @@
 Housing::Application.routes.draw do
-  get "home/index"
   resources :lists
   resources :users
-  root to: 'home#index'
+  root to: 'sessions#new'
 
   match '/signup',  to: 'users#new'
 
