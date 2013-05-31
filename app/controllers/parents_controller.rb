@@ -1,6 +1,7 @@
 class ParentsController < ApplicationController
   # GET /parents
   # GET /parents.json
+  before_filter :set_parent!, only: [ :show, :edit, :update, :destroy ]
   def index
     @parents = Parent.all
 
@@ -14,8 +15,6 @@ class ParentsController < ApplicationController
   # GET /parents/1.json
   def show
     @parent = Parent.find(params[:id])
-    @housingparent = HousingParent.where('parent_id =?', params[:id])
-    @residence = Residence.where(:id => @housingparent.map(&:residence_id))
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,19 +39,15 @@ class ParentsController < ApplicationController
 
   # GET /parents/1/edit
   def edit
-    @parent = Parent.find(params[:id])
   end
 
   # POST /parents
   # POST /parents.json
   def create
     @parent = Parent.new(params[:parent])
-    @housingparent = HousingParent.new(params[:housingparent])
 
     respond_to do |format|
       if @parent.save
-        @housingparent.parent_id = @parent.id
-        @housingparent.save
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
         format.json { render json: @parent, status: :created, location: @parent }
       else
@@ -65,8 +60,6 @@ class ParentsController < ApplicationController
   # PUT /parents/1
   # PUT /parents/1.json
   def update
-    @parent = Parent.find(params[:id])
-
     respond_to do |format|
       if @parent.update_attributes(params[:parent])
         format.html { redirect_to @parent, notice: 'Parent was successfully updated.' }
@@ -88,5 +81,11 @@ class ParentsController < ApplicationController
       format.html { redirect_to parents_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def set_parent!
+    @parent = Parent.find(params[:id], include: [:residences])
   end
 end

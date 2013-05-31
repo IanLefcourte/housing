@@ -31,9 +31,9 @@
   
   <div class="field">
     <div class="control-group">
-      <%= f.label :residence_id, "Available residences", :class => 'control-label' %>
+      <%= f.label :residence_ids, "Available residences", :class => 'control-label' %>
       <div class="controls">
-        <%= collection_select :housingparent, :residence_id, Residence.all, :id, :name, {:multiple => true, :rows=>5, :prompt => 'Select a residence'} %>
+        <%= f.collection_select :residence_ids, Residence.all, :id, :name, {}, {:multiple => true, :rows=>5, :prompt => 'Select a residence'} %>
       </div>
     </div>
   </div>

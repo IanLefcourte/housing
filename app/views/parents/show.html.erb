@@ -11,7 +11,7 @@
 </p>
 
 <%= render(:partial => 'children', :collection => @parent.children, :as => :children) || 'No children added yet.' %>
-<%= render(:partial => 'residences', :collection => @residence, :as => :residence) || 'No residences added yet.' %>
+<%= render(:partial => 'residences', :collection => @parent.residences, :as => :residence) || 'No residences added yet.' %>
 
 
 
