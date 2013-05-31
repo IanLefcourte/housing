@@ -1,0 +1,43 @@
+<%= form_for(@parent) do |f| %>
+  <% if @parent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+
+      <ul>
+      <% @parent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.number_field :phone %>
+  </div>
+  
+  <div class="field">
+    <div class="control-group">
+      <%= f.fields_for :children do |builder| %>
+        <%= render 'child_questions', :f => builder %>
+      <% end %>
+    </div>
+  </div>
+  <div class="btn btn-defaul btn-small span2 offset2"><%= link_to_add_fields "Add a child", f, :children %></div>
+  
+  <div class="field">
+    <div class="control-group">
+      <%= f.label :residence_id, "Available residences", :class => 'control-label' %>
+      <div class="controls">
+        <%= collection_select :housingparent, :residence_id, Residence.all, :id, :name, {:multiple => true, :rows=>5, :prompt => 'Select a residence'} %>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

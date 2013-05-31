@@ -7,6 +7,8 @@ group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'annotate', '2.5.0'
   gem 'rspec-rails', '2.11.0'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 

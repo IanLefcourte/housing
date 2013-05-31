@@ -1,7 +1,19 @@
 Housing::Application.routes.draw do
+  resources :residences
+
+
+  resources :housing_parents
+
+
+  resources :children
+
+
+  resources :parents
+
+
   resources :lists
   resources :users
-  root to: 'sessions#new'
+  root to: 'home#index'
 
   match '/signup',  to: 'users#new'
 

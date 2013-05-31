@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @residence.name %>
+</p>
+
+<p>
+  <b>Waitlist:</b>
+  <%= @residence.waitlist %>
+</p>
+
+<p>
+  <b>Waitlist time:</b>
+  <%= @residence.waitlist_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_residence_path(@residence) %> |
+<%= link_to 'Back', residences_path %>

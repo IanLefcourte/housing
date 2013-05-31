@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @parent.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @parent.phone %>
+</p>
+
+<%= render(:partial => 'children', :collection => @parent.children, :as => :children) || 'No children added yet.' %>
+<%= render(:partial => 'residences', :collection => @residence, :as => :residence) || 'No residences added yet.' %>
+
+
+
+<%= link_to 'Edit', edit_parent_path(@parent) %> |
+<%= link_to 'Back', parents_path %>

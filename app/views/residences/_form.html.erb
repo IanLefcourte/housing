@@ -1,0 +1,29 @@
+<%= form_for(@residence) do |f| %>
+  <% if @residence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@residence.errors.count, "error") %> prohibited this residence from being saved:</h2>
+
+      <ul>
+      <% @residence.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :waitlist %><br />
+    <%= f.text_field :waitlist %>
+  </div>
+    <div class="field">
+    <%= f.label :waitlist_time %><br />
+    <%= f.text_field :waitlist_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

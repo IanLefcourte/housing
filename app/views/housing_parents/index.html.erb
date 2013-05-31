@@ -1,0 +1,27 @@
+<h1>Listing housing_parents</h1>
+
+<table>
+  <tr>
+    <th>Housing</th>
+    <th>Parent</th>
+    <th>Start date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @housing_parents.each do |housing_parent| %>
+  <tr>
+    <td><%= housing_parent.housing_id %></td>
+    <td><%= housing_parent.parent_id %></td>
+    <td><%= housing_parent.start_date %></td>
+    <td><%= link_to 'Show', housing_parent %></td>
+    <td><%= link_to 'Edit', edit_housing_parent_path(housing_parent) %></td>
+    <td><%= link_to 'Destroy', housing_parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Housing parent', new_housing_parent_path %>

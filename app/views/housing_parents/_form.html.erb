@@ -1,0 +1,29 @@
+<%= form_for(@housing_parent) do |f| %>
+  <% if @housing_parent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@housing_parent.errors.count, "error") %> prohibited this housing_parent from being saved:</h2>
+
+      <ul>
+      <% @housing_parent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :housing_id %><br />
+    <%= f.number_field :housing_id %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br />
+    <%= f.number_field :parent_id %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.datetime_select :start_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
