@@ -16,9 +16,9 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '3.2.5'
+  gem 'compass-rails'
   gem 'coffee-rails', '3.2.2'
-  gem 'bootstrap-sass'
-
+  gem 'zurb-foundation', '~> 4.0.0'
   gem 'uglifier', '1.2.3'
 end
 

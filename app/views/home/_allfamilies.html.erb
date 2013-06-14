@@ -1,0 +1,14 @@
+<ul class="no-bullet">
+  <li><%=link_to parents.name, parent_path(parents.id) %></li>
+  <li><%= parents.phone %></li>
+  <li><% if parents.children != nil %>
+	  <ul class="unstyled">
+	  	<span><h6>Children</h6>
+	  	<% parents.children.each do |child| %>
+		  	<li><%= child.name %></li>
+	  	<% end %>
+		</ul>
+		<% end %>
+  </li>
+	<li><%= link_to 'Edit', edit_parent_path(parents.id), :class => 'btn btn-mini' %></li>
+</ul>

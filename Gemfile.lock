@@ -32,8 +32,6 @@ GEM
       rake
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.1.2)
-      sass (~> 3.2)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -44,6 +42,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    chunky_png (1.2.8)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -52,6 +51,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -61,8 +66,9 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
-    ffi (1.8.1)
-    hike (1.2.2)
+    ffi (1.9.0)
+    fssm (0.2.10)
+    hike (1.2.3)
     i18n (0.6.4)
     journey (1.0.4)
     jquery-rails (2.0.2)
@@ -75,8 +81,10 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
-    multi_json (1.7.4)
-    nokogiri (1.5.9)
+    mini_portile (0.5.0)
+    multi_json (1.7.7)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     pg (0.12.2)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -143,7 +151,7 @@ GEM
     sqlite3 (1.3.5)
     thor (0.18.1)
     tilt (1.4.1)
-    treetop (1.4.12)
+    treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
@@ -153,6 +161,8 @@ GEM
     websocket (1.0.7)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+    zurb-foundation (4.0.9)
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -160,9 +170,9 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (= 3.0.1)
-  bootstrap-sass
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
+  compass-rails
   factory_girl_rails (= 4.1.0)
   jquery-rails (= 2.0.2)
   pg (= 0.12.2)
@@ -173,3 +183,4 @@ DEPENDENCIES
   sass-rails (= 3.2.5)
   sqlite3 (= 1.3.5)
   uglifier (= 1.2.3)
+  zurb-foundation (~> 4.0.0)
