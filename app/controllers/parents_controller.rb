@@ -45,9 +45,17 @@ class ParentsController < ApplicationController
   # POST /parents.json
   def create
     @parent = Parent.new(params[:parent])
+    @waitlist = Waitlist.new()
 
     respond_to do |format|
       if @parent.save
+        @parent.residences.each do |residence|
+          @waitlist.parent_id = @parent.id
+          @waitlist.residence_id = residence.id
+          @waitlist.start_date = DateTime.now
+          @waitlist.save
+          
+        end
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
         format.json { render json: @parent, status: :created, location: @parent }
       else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531220901) do
+ActiveRecord::Schema.define(:version => 20130531231228) do
 
   create_table "children", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,12 @@ ActiveRecord::Schema.define(:version => 20130531220901) do
     t.integer "residence_id"
   end
 
+  create_table "parents_waitlists", :force => true do |t|
+    t.integer "parent_id"
+    t.integer "residence_id"
+    t.date    "start_date"
+  end
+
   create_table "residences", :force => true do |t|
     t.string   "name"
     t.string   "waitlist"
@@ -77,5 +83,11 @@ ActiveRecord::Schema.define(:version => 20130531220901) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "waitlists", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "residence_id"
+    t.datetime "start_date"
+  end
 
 end
